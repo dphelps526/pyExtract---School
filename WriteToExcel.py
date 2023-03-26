@@ -36,6 +36,7 @@ import psutil
 
 
 # Note: Outlook desktop app must be installed and running
+# https://www.geeksforgeeks.org/how-to-check-if-an-application-is-open-in-python/
 flag = 0
 for i in psutil.process_iter():
     if i.name() == "OUTLOOK.EXE":
@@ -46,27 +47,25 @@ if flag == 0:
     print("Outlook is not running. Start Outlook and try again")
     exit()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Start a session with outlook
+# https://www.codeforests.com/2020/06/04/python-to-read-email-from-outlook/
 outlook = win32com.client.Dispatch("outlook.application")
 mapi = outlook.GetNamespace("MAPI")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Get email accounts
-# https://www.codeforests.com/2020/06/04/python-to-read-email-from-outlook/
 print("")
 print("Using numbers, choose an email account to begin or type 'quit' to exit")
 for idx, account in enumerate(mapi.Folders):
